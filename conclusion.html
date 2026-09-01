@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conclusión · Colombia 5.0</title>
+  <link rel="icon" href="Images/Icono.jpg">
+  <link rel="stylesheet" href="CSS/style.css" />
+</head>
+
+<body>
+
+  <!-- ===== NAVEGACIÓN / NAVIGATION ===== -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <span class="brand-dot"></span>
+      <a href="index.html"><span>Colombia <strong>5.0</strong></span></a>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="Conferencia_ilia_espanol.html">Conferencias</a>
+      <a href="Glosario.html">Glosario</a>
+      <a href="conclusion.html" class="active">Conclusion</a>
+    </nav>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
+  </header>
+    <div class="page-header">
+      <h1>Conclusion</h1>
+      <div class="container">
+        <div class="columna-izquierda">
+          <a href="Conclusion_ingles.html"><button>Ingles</button></a>
+        </div>
+      </div>
+    </div>
+    <div class="paragraphs">
+      <div class="columna-izquierda">
+        <h2>ILIA x CENIA</h2>
+        <p>
+          Me pareció una charla muy interesante sobre por qué debemos crear nuestra propia tecnología en lugar de solo consumirla. El problema de 
+          usar inteligencia artificial de afuera es que puede traer prejuicios o no entendernos correctamente. Por eso necesitamos soberanía y armar 
+          nuestro propio modelo. Si logramos que las universidades trabajen junto con las empresas, mejoramos nuestros equipos y cuidamos nuestros datos 
+          aquí mismo, podremos crear una inteligencia artificial totalmente independiente para nosotros.
+        </p>
+        <img src="Images/Conferencia auditorio 5.png" alt="Conferencia de cenia">
+      </div>
+      <div class="columna-Derecha">
+        <h2>Conferencia game UI</h2>
+        <p>
+          La conferencia sobre interfaces de videojuegos estuvo muy entretenida. Me sorprendió ver la cantidad de detalles que necesitan los 
+          programas de uso diario. También me llamó la atención que la forma en que organizamos y adaptamos el diseño es vital para la comodidad 
+          del usuario. La interfaz no es solo para que se vea bonito, es toda la experiencia de nuestra aplicación.
+        </p>
+        <img src="Images/Conferencia Juegos 2.jpg" alt="Conferencia_juegos">
+      </div>
+    </div>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', open);
+        navToggle.textContent = open ? '✕' : '☰';
+      });
+      navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.textContent = '☰';
+      }));
+    }
+
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('error', () => {
+        const fallback = document.createElement('div');
+        fallback.className = 'image-fallback';
+        fallback.textContent = img.alt || 'Image unavailable';
+        img.replaceWith(fallback);
+      });
+    });
+  </script>
+</body>
+
+</html>
